@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>{{ title }} get better!</title>
+    <!--Implement Bootstrap-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-theme.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/landing.css') }}">
+
+  </head>
+  <body>
+      <div id="wrap">
+        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/Screen%20Shot%202015-02-27%20at%2010.01.45%20AM.png">
+        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/Screen%20Shot%202015-02-26%20at%203.56.50%20PM.png">
+        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/Screen%20Shot%202015-02-27%20at%2010.07.31%20AM.png">
+        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/Screen%20Shot%202015-02-27%20at%2010.04.36%20AM.png">
+      </div>
+
+      <div class="heroframe">
+        <h1 style="color:white">ZHOU DE LIANG</h1>
+        <p>Feel Better</p>
+        <p><a href="{{ url_for('eng_version') }}" class="btn hide-sm btn-contrast btn-large btn-semi-transparent how-it-works" id="heroFont">English</a></p>
+        <p><a href="welcome" class="btn hide-sm btn-contrast btn-large btn-semi-transparent how-it-works" id="heroFont">中文</a></p>
+      </div>
+
+      <!-- JQUERY -->
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script type="text/javascript">    
+          $(window).load(function(){
+          $('img.bgfade').hide();
+          var dg_H = $(window).height();
+          var dg_W = $(window).width();
+          $('#wrap').css({'height':dg_H,'width':dg_W});
+          function anim() {
+              $("#wrap img.bgfade").first().appendTo('#wrap').fadeOut(1500);
+              $("#wrap img").first().fadeIn(1500);
+              setTimeout(anim, 5000);
+          }
+          anim();})
+          $(window).resize(function(){window.location.href=window.location.href})
+      </script>
+      <!-- Boot Strap -->
+      <script type="text/javascript" href="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+.center-title{
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.center-text{
+	width: 60%;
+	margin: 0 auto;
+	text-align: justify;
+}
+
+.center-text p{
+	color: #7f7f7f;
+}

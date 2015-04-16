@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>{{ title }}</title>
+	</head>
+
+	<body>
+	<a href="{{ url_for('eng_version') }}">back</a>	
+		<label>Edit {{ user.author }}'s Post</label>
+		<form method="POST" action="{{ url_for('edit_post', uid=user.id) }}">
+			<input type="text" class="form-control" name="name" placeholder="{{ user.author }}">
+			<br>
+			<textarea name="posting" class="form-control" rows="3" placeholder="post" style="max-width: 100%;">{{ user.post }}</textarea>
+			<div class="modal-footer">
+	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        	<input type="submit" class="btn-primary"/>
+	      	</div>
+		</form>
+
+	</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!-- base extend -->
+<html>
+  <head>
+    <title>Create Note</title>  
+    <!--Implement Bootstrap-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-theme.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/note.css') }}">
+  </head>
+
+  <body>
+    <h1 class="center-title">Dear {{ title }},</h1>
+  	<div class="center-title jumboBackGround">
+  	
+    	<a href="/index">Home</a>
+    	<a href="#create" data-toggle="modal">+post</a>
+    
+   	</div>
+    <hr>
+   	<!-- Modal -->
+	<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        			<h4 class="modal-title" id="myModalLabel">Create Post</h4>
+      			</div>
+	      		<div class="modal-body">
+	        		<form method="POST" action="{{ url_for('create_post') }}">
+	        			<input type="text" class="form-control" name="name" placeholder="Name">
+	        			<br>
+	        			<textarea name="posting" class="form-control" rows="3" placeholder="post" style="max-width: 100%;"></textarea>
+	        			<div class="modal-footer">
+				        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        	<input type="submit" class="btn-primary"/>
+				      	</div>
+	        		</form>
+
+	      		</div>
+		    	
+    		</div>
+  		</div>
+	</div>
+    {% block content %}{% endblock %}
+    <!-- JQUERY -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Paralax Scrolling -->
+    <script src="/path/to/parallax.js"></script>
+	  <!-- Bootstrap -->
+	  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootbox.min.js') }}"></script> 
+  </body>
+</html>
