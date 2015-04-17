@@ -13,3 +13,28 @@
 .center-text p{
 	color: #7f7f7f;
 }
+
+
+
+#page_nav{
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+
+/* This is for the infinite scrolling */
+#wrap{
+	width: 800px;
+	margin: 0px auto;
+}
+
+.newData{
+	height: 1000px;
+	background: #09F;
+	margin: 10px 0px;
+}
+
+#status{
+	position: fixed;
+	font-size: 24px;
+}

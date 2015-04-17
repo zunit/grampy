@@ -2,6 +2,7 @@ from flask import render_template, flash
 from app import app
 from app import db, models
 from flask import request
+from config import POSTS_PER_PAGE
 
 @app.route('/')
 @app.route('/index')
@@ -9,9 +10,15 @@ def index():
     return render_template('index.html',
                            title='Dear Grandpa')
 
-@app.route('/eng_note')
-def eng_version():
-	users = models.user_post.query.all()
+@app.route('/eng_note', methods=['GET', 'POST'])
+@app.route('/eng_note/<int:page>', methods=['GET', 'POST'])
+def eng_version(page=1):
+
+	# the page number, starting from 1
+	# the number of items per page
+	# an error flag. If True, when an out of range page is requested a 
+	# 404 error will be automatically returned
+	users = models.user_post.query.paginate(page, POSTS_PER_PAGE, False)
 	return render_template('eng_note.html',
                            users=users, title='Grandpa')
 

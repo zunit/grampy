@@ -2,7 +2,11 @@
 {% block content %}
 			
 	<div class="col-md-offset-1 col-md-10 col-md-offset-1">
-	    {% for post in users %}
+		<!-- 
+			users is now in pagination mode since .items
+			refer to mega tut flask
+		-->
+	    {% for post in users.items %}
 	    <div class="center-text">
 	    	<h1>{{ post.author }}</h1>
 	    	<p>{{ post.post }}</p>
@@ -11,9 +15,49 @@
 	    </div>
 
 	    {% endfor %}
-	</div>    	
 
-<!-- TODO: infinite scrolling -->
+	    <!-- 
+		NOTE: eng_version is the function for the page eng_note
+		Bad naming conventions 
+		-->
+		<div class="center-text" id="page_nav">
+			{% if users.has_prev %}
+			<a href="{{ url_for('eng_version', page=users.prev_num) }}">&lt;&lt; Newer posts</a>
+			{% else %}
+			&lt;&lt; Newer posts
+			{% endif %} 
+			| 
+			{% if users.has_next %}
+			<a href="{{ url_for('eng_version', page=users.next_num) }}">Older posts &gt;&gt;</a>
+			{% else %}
+			Older posts &gt;&gt;
+			{% endif %}
+		</div>
+	</div>    	
+	<div id="status">0 | 0</div>
+	<div id="wrap">
+	</div>
+
+	
+
+
+
+	<script type="text/javascript">
+	function yHandler(){
+		var wrap = document.getElementById('wrap');
+		var contentHeight = wrap.offsetHeight;
+		var yOffset = window.pageYOffset;
+		var y = yOffset + window.innerHeight;
+		if (y >= contentHeight){
+			wrap.innerHTML += '<div class="new Data"></div>';
+			// ajax call to get more data goes here
+		}
+		var status = document.getElementById('status');
+		status.innerHTML = contentHeight+ " | " +y;
+	} 
+	window.onscroll = yHandler;
+
+	</script>
 <!-- TODO: Del - Alert -->
 <!-- upload images -->
 {% endblock %}
