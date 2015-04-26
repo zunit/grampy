@@ -131,3 +131,51 @@ white-space: nowrap;
 cursor: pointer;
 box-sizing: border-box;
 }
+
+/* OWL CAROUSEL*/
+#owl-demo .owl-item div{
+  padding:5px;
+}
+#owl-demo .owl-item img{
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* Footer */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px; 
+}
+.site-footer {
+  background: white;
+  z-index: -1;
+  left: 50%
+}
+
+#footy_img{
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.centeredImage{
+  text-align:center;
+  display:block;
+  }

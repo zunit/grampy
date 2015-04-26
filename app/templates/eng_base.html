@@ -6,20 +6,30 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-theme.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
 
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.css') }}">
+
     <!-- custom css -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/landing.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/note.css') }}">
+  
+
   </head>
 
   <body>
     <h1 class="center-title">Dear {{ title }},</h1>
   	<div class="center-title jumboBackGround">
   	
-    	<a href="/index">Home</a>
-    	<a href="#create" data-toggle="modal">+post</a>
+    	<a href="/index">Home  </a>|
+    	<a href="#create" data-toggle="modal">+post  </a>|
+      <a href="/eng_note" >posts  </a>|
+      <a href="/gallery">  Images</a>
     
    	</div>
-    <hr>
+    <div style="padding-bottom: 1em">
+    </div>
    	<!-- Modal -->
 	<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   		<div class="modal-dialog">
@@ -38,7 +48,6 @@
 				        	<input type="submit" class="btn-primary"/>
 				      	</div>
 	        		</form>
-
 	      		</div>
 		    	
     		</div>
@@ -47,8 +56,38 @@
     {% block content %}{% endblock %}
     <!-- JQUERY -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <!-- Paralax Scrolling -->
-    <script src="/path/to/parallax.js"></script>
+    <!-- Owl Carousel -->
+    <script src="{{ url_for('static', filename='js/owl.carousel.js') }}"></script>
+    <!-- Javascript function for OWL -->
+    <script language="JavaScript" type="text/javascript">
+      $(document).ready(function() {
+       
+        $("#owl-demo").owlCarousel({
+          autoPlay : 3000,
+          stopOnHover : true,
+          navigation:true,
+          paginationSpeed : 1000,
+          goToFirstSpeed : 2000,
+          singleItem : true,
+          transitionStyle:"fade"
+        });
+       
+      });
+    </script>
+    <!-- Custom Javascript -->
+    <script type="text/javascript">
+      $(window).load(function(){
+        var element = document.getElementById("gally");
+        var dg_H = $(window).height();
+        $('.gally').css(
+          {'height':dg_H*0.5, 
+          'width': 'auto',
+          'margin': '0 auto'
+        });
+      });
+
+    </script>
+
 	  <!-- Bootstrap -->
 	  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootbox.min.js') }}"></script> 
