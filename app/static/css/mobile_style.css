@@ -1,0 +1,8 @@
+@media screen and (max-width: 370px) {
+    body {
+        background-color: lightblue;
+    }
+    .heroframe p{
+    	font-size: 70px;
+    }
+}

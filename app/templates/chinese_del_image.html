@@ -1,0 +1,16 @@
+{% extends "chinese_base.html" %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		{% for pic in photos %}
+	    <div class="col-sm-6 col-md-3">
+	        <a href="#" class="thumbnail">
+	         	<img src="/static/assets/uploads/{{ pic.photo_url }}" 
+	         	alt="Generic placeholder thumbnail">
+	       	</a>
+	       	<a href="{{ url_for('chinese_delete_image', pid=pic.photo_id) }}" >delete|删除</a>
+	    </div>
+	    {% endfor %}
+	</div>
+</div>
+{% endblock %}

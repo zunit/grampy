@@ -1,4 +1,4 @@
-{% extends "eng_base.html" %}
+{% extends "chinese_base.html" %}
 {% block content %}
 	
 	<div class="col-md-offset-1 col-md-10 col-md-offset-1" style=" border-radius: 10px; height: initial; background-color: #148DFA; margin-bottom: 1em">
@@ -10,7 +10,7 @@
 	    <div class="center-text">
 	    	<h1 style="color:white">{{ post.author }}</h1>
 	    	<p style="color:white">{{ post.post }}</p>
-	    	<a value = "{{ post }}" href="{{ url_for('edit_page', uid=post.id) }}" data-toggle="modal" style="color:#C6F6A0">edit</a><hr>
+	    	<a value = "{{ post }}" href="{{ url_for('chinese_edit_page', uid=post.id) }}" data-toggle="modal" style="color:#C6F6A0">修改</a><hr>
 	    </div>
 
 	    {% endfor %}
@@ -21,15 +21,15 @@
 		-->
 		<div class="center-text" id="page_nav">
 			{% if users.has_prev %}
-			<a href="{{ url_for('eng_version', page=users.prev_num) }}" style="color:#C6F6A0">&lt;&lt; Newer posts</a>
+			<a href="{{ url_for('chinese_version', page=users.prev_num) }}" style="color:#C6F6A0">&lt;&lt; 下页</a>
 			{% else %}
-			&lt;&lt; Newer posts
+			&lt;&lt; 下页
 			{% endif %} 
 			| 
 			{% if users.has_next %}
-			<a href="{{ url_for('eng_version', page=users.next_num) }}" style="color:#C6F6A0">Older posts &gt;&gt;</a>
+			<a href="{{ url_for('chinese_version', page=users.next_num) }}" style="color:#C6F6A0">前一页 &gt;&gt;</a>
 			{% else %}
-			Older posts &gt;&gt;
+			前一页 &gt;&gt;
 			{% endif %}
 		</div>
 	</div>

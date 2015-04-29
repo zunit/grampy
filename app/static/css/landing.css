@@ -85,6 +85,16 @@ z-index: -1;
 .heroframe h1{
     font-size: 50px;
 }
+
+@media only screen (max-width: 400px) {
+    body {
+        background-color: lightblue;
+    }
+    .heroframe p{
+      font-size: 70px;
+    }
+}
+
 .heroframe p{
     color: white;
     font-size: 18.2px;

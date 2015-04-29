@@ -1,5 +1,6 @@
-{% extends "eng_base.html" %}
+{% extends "chinese_base.html" %}
 {% block content %}
+
 {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul class=flashes>
@@ -17,7 +18,7 @@
     			<h4 class="modal-title" id="myModalLabel">Upload Picture</h4>
   			</div>
       		<div class="modal-body">
-				<form id="courseInfo" action="{{url_for('upload') }}" method="POST" enctype="multipart/form-data">
+				<form id="courseInfo" action="{{url_for('chinese_upload') }}" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="name">Picture:</label>
 						<input id="file" type="file" name="file">

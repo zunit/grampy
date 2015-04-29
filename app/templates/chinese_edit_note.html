@@ -9,16 +9,16 @@
 	<body>
 		<div class="container" style="padding-top: 1em; padding-bottom: 1em">
 			<div class="col-md-offset-1 col-md-10 col-md-offset-1" style=" border-radius: 10px; height: initial; background-color: #148DFA; margin-bottom: 1em">
-				<h2 class="text-center" style="color:white">Edit {{ user.author }}'s Post</h2>
-				<a href="{{ url_for('eng_version') }}"><p class="text-center" style="color:#C6F6A0">back</p></a>	
+				<h2 class="text-center" style="color:white">修改{{ user.author }}的信</h2>
+				<a href="{{ url_for('chinese_version') }}"><p class="text-center" style="color:#C6F6A0">后退</p></a>	
 				
-				<form method="POST" action="{{ url_for('edit_post', uid=user.id) }}" role="form">
+				<form method="POST" action="{{ url_for('chinese_edit_post', uid=user.id) }}" role="form">
 					<div class="form-group">
 						<input type="text" class="form-control" name="name" placeholder="{{ user.author }}">
 						<br>
 						<textarea name="posting" class="form-control" rows="5" placeholder="post" style="max-width: 100%; max-height: 100;">{{ user.post }}</textarea>
 						<div class="modal-footer">   
-							<a value = "{{ user.id }}" href="{{ url_for('delete_post', uid=user.id) }}" style="color:#C6F6A0">delete</a>
+							<a value = "{{ user.id }}" href="{{ url_for('chinese_delete_post', uid=user.id) }}" style="color:#C6F6A0">删除</a>
 				        	<input type="submit" class="btn-primary"/>
 				      	</div>
 				    </div>

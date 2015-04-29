@@ -7,21 +7,24 @@
     
     <!-- custom css -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/landing.css') }}">
+    <!-- mobile css -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mobile_style.css') }}">
 
   </head>
   <body>
       <div id="wrap">
-        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/Screen%20Shot%202015-02-27%20at%2010.01.45%20AM.png">
-        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/Screen%20Shot%202015-02-26%20at%203.56.50%20PM.png">
-        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/Screen%20Shot%202015-02-27%20at%2010.07.31%20AM.png">
-        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/Screen%20Shot%202015-02-27%20at%2010.04.36%20AM.png">
+        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/landing.jpg">
+        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/landing1.jpg">
+        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/landing2.jpg">
+        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/landing3.jpg">
+        <img class="bgfade" style="background-attachment:scroll;width:100%;height:auto" src="../static/assets/landing5.jpg">
       </div>
 
       <div class="heroframe">
-        <h1 style="color:white">ZHOU DE LIANG</h1>
+        <h1 style="color:white">周家</h1>
         <p>Feel Better</p>
         <p><a href="{{ url_for('eng_version') }}" class="btn hide-sm btn-contrast btn-large btn-semi-transparent how-it-works" id="heroFont">English</a></p>
-        <p><a href="welcome" class="btn hide-sm btn-contrast btn-large btn-semi-transparent how-it-works" id="heroFont">中文</a></p>
+        <p><a href="{{ url_for('chinese_version') }}" class="btn hide-sm btn-contrast btn-large btn-semi-transparent how-it-works" id="heroFont">中文</a></p>
       </div>
 
       <!-- JQUERY -->
