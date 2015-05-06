@@ -153,8 +153,8 @@ def chinese_create_post():
  		posting = request.form.get('posting')
  		
  		if (name) and (posting):
-			print("name: " + name)
- 			print("posting: " + posting)
+			#print("name: " + name)
+ 			#print("posting: " + posting)
  			posted = models.chinese_user_post(author=name, post=posting)
  			db.session.add(posted)
  			db.session.commit()
