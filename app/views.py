@@ -145,24 +145,29 @@ def chinese_version(page=1):
 	return render_template('chinese_note.html',
                            users=users, title='Grandpa')
 
-@app.route('/chinese_add', methods=['POST'])
+@app.route('/chinese_add')
 def chinese_create_post():
- 	if request.method == 'POST':
- 		# flash('New entry was successfully posted')
- 		name = request.form.get('name')
- 		posting = request.form.get('posting')
- 		
- 		if (name) and (posting):
-			#print("name: " + name)
- 			#print("posting: " + posting)
- 			posted = models.chinese_user_post(author=name, post=posting)
- 			db.session.add(posted)
- 			db.session.commit()
- 		else:
- 			print("NOTHING")
- 		users = models.chinese_user_post.query.order_by(models.chinese_user_post.id.desc()).paginate(1, POSTS_PER_PAGE, False)
- 		return render_template('chinese_note.html',
+ 	
+	name = 'name'
+	posting = 'xie xin'
+	
+	if (name) and (posting):
+		#print("name: " + name)
+		#print("posting: " + posting)
+		posted = models.chinese_user_post(author=name, post=posting)
+		db.session.add(posted)
+		db.session.commit()
+		edit_user = models.chinese_user_post.query.filter_by(author='name').first()
+		return render_template('chinese_edit_note.html',
+                           user=edit_user, title='Grandpa')
+	else:
+		print("NOTHING")
+		users = models.chinese_user_post.query.order_by(models.chinese_user_post.id.desc()).paginate(page, POSTS_PER_PAGE, False)
+		return render_template('chinese_note.html',
                            users=users, title='Grandpa')
+	# users = models.chinese_user_post.query.order_by(models.chinese_user_post.id.desc()).paginate(1, POSTS_PER_PAGE, False)
+	# return render_template('chinese_note.html',
+ #                   users=users, title='Grandpa')
 
 @app.route('/chinese_edit_page/<uid>', methods=['GET','POST'])
 def chinese_edit_page(uid):
